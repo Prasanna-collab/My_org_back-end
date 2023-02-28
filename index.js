@@ -18,13 +18,14 @@ const port = process.env.port||5000;
 
 //middleware
 app.use(express.json());
+app.use(cors());
 //add any routes to distinct it from the front end routes. if we see api in url we come to know it is 
 // sent by backend. 
 app.use("/api",employeeRoutes)
 
 //cors - cross origin resource sharing. It is used to share the data between the servers. Initially it wont allow any servers
 // as a precaution. npm i cors  yet to update cors.
-app.use(cors());
+
 app.listen(port, ()=>{
      console.log("App is running on", port)
 })
