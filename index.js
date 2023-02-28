@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const db = require('./db/connect');
+const cors = require("cors")
 // import routes
 const employeeRoutes = require("./routes/employee.routes")
 
@@ -23,7 +24,7 @@ app.use("/api",employeeRoutes)
 
 //cors - cross origin resource sharing. It is used to share the data between the servers. Initially it wont allow any servers
 // as a precaution. npm i cors  yet to update cors.
-
+app.use(cors());
 app.listen(port, ()=>{
      console.log("App is running on", port)
 })
